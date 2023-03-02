@@ -1,0 +1,6 @@
+psycopg2-binary
+py2
+pymongo
+ipython-cypher
+ipython-sql
+pandasql
