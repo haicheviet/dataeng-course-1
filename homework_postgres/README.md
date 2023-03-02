@@ -33,7 +33,8 @@ Installing "Python", "Jupyter Notebook", and "PostgreSQL".
 
 Simply clone the repository and run
 
-```docker-compose up``
+```bash
+docker-compose up -d
+```
 
-
-The following docker compose file will build the database and pgadmin in 127.0.0.0:5000.
+The following docker compose file will build the database and pgadmin in http://localhost:5050/browser/
