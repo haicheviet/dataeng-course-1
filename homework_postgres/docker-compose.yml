@@ -5,13 +5,15 @@ services:
     image: postgres:15.2
     restart: unless-stopped
     ports:
-        - 5432:5432
+        - 5433:5432
     environment:
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: changeme
       PGDATA: /data/postgres
     volumes:
        - postgres:/data/postgres
+    networks:
+       - postgres
 
   pgadmin:
     container_name: pgadmin_container
@@ -24,7 +26,7 @@ services:
        - pgadmin:/var/lib/pgadmin
     ports:
       - "5050:80"
-    links:
+    networks:
       - postgres
     depends_on:
       - postgres
@@ -34,3 +36,7 @@ services:
 volumes:
     postgres:
     pgadmin:
+
+networks:
+  postgres:
+    driver: bridge
